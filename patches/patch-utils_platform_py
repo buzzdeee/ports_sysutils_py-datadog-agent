@@ -1,0 +1,15 @@
+$OpenBSD$
+--- utils/platform.py.orig	Thu Feb 11 09:06:50 2016
++++ utils/platform.py	Thu Feb 11 09:14:34 2016
+@@ -2,7 +2,10 @@
+ import sys
+ 
+ # project
+-from utils.dockerutil import get_client
++try:
++  from utils.dockerutil import get_client
++except Exception, e:
++  pass
+ 
+ _is_ecs = None
+ 
